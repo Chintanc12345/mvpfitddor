@@ -1,103 +1,228 @@
+"use client"
 import Image from "next/image";
+import Navbar from "./_components/Navbar";
+import Footer from "./_components/Footer";
+import { useState } from "react";
 
+
+const services = [
+  {
+    id: 1,
+    title: "Emergency Repair",
+    description: "24/7 emergency garage door repair service",
+    price: 150,
+    eta: "1–2 hours",
+    details:
+      "We offer fast and reliable emergency garage door repairs anytime, anywhere.",
+  },
+  {
+    id: 2,
+    title: "Annual Maintenance",
+    description: "Complete garage door tune-up and inspection",
+    price: 89,
+    eta: "2–3 hours",
+    details:
+      "Includes safety checks, lubrication, and part adjustments for long-term performance.",
+  },
+  {
+    id: 3,
+    title: "Opener Installation",
+    description: "Professional garage door opener installation",
+    price: 299,
+    eta: "3–4 hours",
+    details:
+      "Our team installs and configures openers from top brands with full warranty.",
+  },
+  {
+    id: 4,
+    title: "Spring Replacement",
+    description: "Torsion or extension spring replacement",
+    price: 199,
+    eta: "1–2 hours",
+    details:
+      "Includes high-quality springs and safe installation by certified techs.",
+  },
+  {
+    id: 5,
+    title: "Cable Repair",
+    description: "Garage door cable repair or replacement",
+    price: 120,
+    eta: "2 hours",
+    details:
+      "We replace frayed or broken cables to ensure smooth door operation.",
+  },
+  {
+    id: 6,
+    title: "Sensor Alignment",
+    description: "Garage door safety sensor adjustment",
+    price: 70,
+    eta: "1 hour",
+    details: "Fixes misaligned sensors to restore automatic functionality.",
+  },
+  {
+    id: 7,
+    title: "Track Adjustment",
+    description: "Realignment of bent or misaligned tracks",
+    price: 130,
+    eta: "1–2 hours",
+    details: "Ensures smooth rolling and prevents further damage.",
+  },
+  {
+    id: 8,
+    title: "Panel Replacement",
+    description: "Damaged garage door panel replacement",
+    price: 250,
+    eta: "3 hours",
+    details:
+      "Swap out cracked or dented panels with manufacturer-approved replacements.",
+  },
+  {
+    id: 9,
+    title: "Roller Replacement",
+    description: "Replace noisy or worn-out rollers",
+    price: 100,
+    eta: "1 hour",
+    details: "Upgrades your rollers to ensure quiet, smooth operation.",
+  },
+  {
+    id: 10,
+    title: "Remote Setup",
+    description: "Garage door remote pairing & setup",
+    price: 60,
+    eta: "30 mins",
+    details: "We help configure remotes with your opener or replace them.",
+  },
+  {
+    id: 11,
+    title: "Insulation Upgrade",
+    description: "Improve garage energy efficiency",
+    price: 200,
+    eta: "2–3 hours",
+    details: "Add insulation to your door for better thermal performance.",
+  },
+  {
+    id: 12,
+    title: "Smart Opener Setup",
+    description: "Connect smart opener to app",
+    price: 175,
+    eta: "2 hours",
+    details: "WiFi integration and app setup for remote access and control.",
+  },
+  {
+    id: 13,
+    title: "Weather Seal Replacement",
+    description: "New bottom seal installation",
+    price: 85,
+    eta: "1 hour",
+    details: "Keeps out water, dust, and pests by replacing worn seals.",
+  },
+  {
+    id: 14,
+    title: "Full System Tune-Up",
+    description: "Full diagnostics and system lubrication",
+    price: 99,
+    eta: "2 hours",
+    details: "Comprehensive checkup of door, opener, and safety components.",
+  },
+  {
+    id: 15,
+    title: "Keypad Programming",
+    description: "Set up or reset access keypads",
+    price: 65,
+    eta: "30–45 mins",
+    details: "Secure and reprogram your wall-mounted or wireless keypads.",
+  },
+];
 export default function Home() {
+    const [expandedCard, setExpandedCard] = useState(null);
+  
+    const toggleDetails = (serviceId) => {
+      setExpandedCard((prev) => (prev === serviceId ? null : serviceId));
+    };
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+     <>
+         <Navbar />
+         <div
+         >
+           <div className="flex item-center flex-col justify-center text-center py-8">
+             <h3 className="text-4xl font-bold mb-4 fit-content">
+               Welcome to FixDoor LLC
+             </h3>
+             <p className="fit-content text-xl">
+               Your trusted partner for high-quality garage door services
+             </p>
+           </div>
+   
+           <div className="w-[95%] mx-auto my-8">
+             <div
+               className="overflow-x-auto cursor-pointer"
+               style={{
+                 scrollbarWidth: "none",
+                 msOverflowStyle: "none",
+               }}
+             >
+               <div className="flex gap-4 p-[20px]">
+                 {services.map((service) => (
+                   <div
+                     key={service.id}
+                     className="w-[280px] bg-white border border-gray-200 rounded-lg p-4 flex-shrink-0 transition-transform duration-300 hover:scale-105"
+                     style={{
+                       height: expandedCard === service.id ? "auto" : "400px",
+                       boxShadow: "0px 5px 8px rgba(9, 54, 48, 0.5)",
+                     }}
+                   >
+                     <div className="relative w-full h-40 mb-3 rounded overflow-hidden">
+                       <Image
+                         src="https://fixdoor.com/wp-content/uploads/2025/03/commercial-garage-door-replacement-marble-falls-texas.jpg"
+                         alt="Garage Door"
+                         fill
+                         className="object-cover"
+                       />
+                     </div>
+                     <h3 className="font-bold text-lg">{service.title}</h3>
+                     <p className="text-sm text-gray-600 mt-2 mb-4">
+                       {service.description}
+                     </p>
+                     <p className="text-[#093630] font-bold mt-2">
+                       ${service.price}
+                     </p>
+                     <p className="text-sm text-gray-500 mt-1">
+                       <span className="text-[20px] relative top-[3px]">⏱</span>{" "}
+                       <span className="text-[14px]">Estimated arrival: </span>
+                       <span className="font-semibold">{service.eta}</span>
+                     </p>
+   
+                     <button
+                       className="text-sm flex justify-between w-full text-gray-800 font-semibold mt-2 hover:cursor-pointer items-center"
+                       onClick={() => toggleDetails(service.id)}
+                     >
+                       View Details
+                       <span className="ml-1 text-[10px]">
+                         {expandedCard === service.id ? "▲" : "▼"}
+                       </span>
+                     </button>
+   
+                     <div
+                       className={`transition-all duration-700 overflow-hidden ${
+                         expandedCard === service.id
+                           ? "max-h-40 opacity-100 mt-2"
+                           : "max-h-0 opacity-0"
+                       }`}
+                     >
+                       <div
+                         className="text-sm rounded"
+                         style={{ opacity: expandedCard === service.id ? 1 : 0 }}
+                       >
+                         {service.details}
+                       </div>
+                     </div>
+                   </div>
+                 ))}
+               </div>
+             </div>
+           </div>
+         </div>
+         <Footer />
+       </>
   );
 }
