@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.2.0",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -19,12 +20,11 @@
     "tailwindcss": "^4"
   },
   "browserslist": [
-  "last 2 Chrome versions",
-  "last 2 Edge versions",
-  "last 2 Firefox versions",
-  "last 2 Safari versions",
-  "not IE 11",
-  "not op_mini all"
-]
-
+    "last 2 Chrome versions",
+    "last 2 Edge versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "not IE 11",
+    "not op_mini all"
+  ]
 }
