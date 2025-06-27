@@ -141,7 +141,6 @@ export default function Home() {
     };
   return (
      <>
-         <Navbar />
          <div
          >
            <div className="flex item-center flex-col justify-center text-center py-8">
@@ -222,7 +221,6 @@ export default function Home() {
              </div>
            </div>
          </div>
-         <Footer />
        </>
   );
 }

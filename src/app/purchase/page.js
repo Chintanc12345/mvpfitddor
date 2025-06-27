@@ -6,7 +6,6 @@ import Navbar from "../_components/Navbar";
 export default function PurchasePage() {
   return (
 <>
-<Navbar/>
 <div className="max-w-4xl mx-auto px-4 py-10 text-gray-800">
       <h1 className="text-3xl font-bold mb-6 text-center">Secure Checkout</h1>
 
