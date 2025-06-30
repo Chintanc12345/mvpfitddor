@@ -149,7 +149,9 @@ export default function Home() {
   const toggleDetails = (serviceId) => {
     setExpandedCard((prev) => (prev === serviceId ? null : serviceId));
   };
-
+const navigateIntentHandler=(value)=>{
+  Router.push()
+}
   return (
     <>
       <div
@@ -171,11 +173,12 @@ export default function Home() {
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="w-[280px] bg-white border  rounded-lg  flex-shrink-0 transition-transform duration-300 hover:scale-105"
+                  className="w-[280px] cursor-pointer bg-white border  rounded-lg  flex-shrink-0 transition-transform duration-300 hover:scale-105"
                   style={{
                     height: expandedCard === service.id ? "auto" : "400px",
                     boxShadow: "0px 5px 8px rgba(9, 54, 48, 0.5)",
                   }}
+                  onClick={()=>{navigateIntentHandler(service.title)}}
                 >
                   <div className="relative w-full h-40 mb-3 rounded overflow-hidden">
                     <Image
