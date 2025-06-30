@@ -152,7 +152,6 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
       <div
         className={`${geistSans.className} ${geistMono.className} font-[family-name:var(--font-geist-sans)] p-6`}
       >
@@ -167,17 +166,12 @@ export default function Home() {
 
         <div className="w-[95%] mx-auto my-8">
           <div
-            className="overflow-x-auto cursor-pointer"
-            style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-            }}
           >
-            <div className="flex gap-4 p-[20px]">
+            <div className="flex gap-4 p-[20px]" >
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="w-[280px] bg-white border border-gray-200 rounded-lg p-4 flex-shrink-0 transition-transform duration-300 hover:scale-105"
+                  className="w-[280px] bg-white border  rounded-lg  flex-shrink-0 transition-transform duration-300 hover:scale-105"
                   style={{
                     height: expandedCard === service.id ? "auto" : "400px",
                     boxShadow: "0px 5px 8px rgba(9, 54, 48, 0.5)",
@@ -234,7 +228,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

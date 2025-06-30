@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
 
   images: {
-    domains: ['fixdoor.com', 'mwi.imgix.net', 'www.mwcomponents.com'],
+    domains: ['fixdoor.com', 'mwi.imgix.net', 'www.mwcomponents.com', 'hebbkx1anhila5yf.public.blob.vercel-storage.com'],
   },
 
   experimental: {
